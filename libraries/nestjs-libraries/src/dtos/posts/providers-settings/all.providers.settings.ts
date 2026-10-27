@@ -62,7 +62,20 @@ export type AllProvidersSettings =
   | ProviderExtension<'skool', SkoolDto>
   | ProviderExtension<'mewe', MeweDto>
   | ProviderExtension<'tumblr', TumblrDto>
-  | ProviderExtension<'whop', WhopDto>;
+  | ProviderExtension<'whop', WhopDto>
+  | ProviderExtension<'nabux-bale', None>
+  | ProviderExtension<'nabux-eitaa', None>
+  | ProviderExtension<'nabux-rubika', None>
+  | ProviderExtension<'nabux-soroush', None>
+  | ProviderExtension<'nabux-whatsapp', None>
+  | ProviderExtension<'nabux-telegram', None>
+  | ProviderExtension<'nabux-instagram', None>
+  | ProviderExtension<'nabux-facebook', None>
+  | ProviderExtension<'nabux-x', None>
+  | ProviderExtension<'nabux-linkedin', None>
+  | ProviderExtension<'nabux-threads', None>
+  | ProviderExtension<'nabux-tiktok', None>
+  | ProviderExtension<'nabux-youtube', None>;
 
 type None = NonNullable<unknown>;
 
@@ -103,6 +116,19 @@ export const allProviders = (setEmpty?: any) => {
     { value: WhopDto, name: 'whop' },
     { value: MeweDto, name: 'mewe' },
     { value: TumblrDto, name: 'tumblr' },
+    { value: setEmpty, name: 'nabux-bale' },
+    { value: setEmpty, name: 'nabux-eitaa' },
+    { value: setEmpty, name: 'nabux-rubika' },
+    { value: setEmpty, name: 'nabux-soroush' },
+    { value: setEmpty, name: 'nabux-whatsapp' },
+    { value: setEmpty, name: 'nabux-telegram' },
+    { value: setEmpty, name: 'nabux-instagram' },
+    { value: setEmpty, name: 'nabux-facebook' },
+    { value: setEmpty, name: 'nabux-x' },
+    { value: setEmpty, name: 'nabux-linkedin' },
+    { value: setEmpty, name: 'nabux-threads' },
+    { value: setEmpty, name: 'nabux-tiktok' },
+    { value: setEmpty, name: 'nabux-youtube' },
   ].filter((f) => f.value);
 };
 
