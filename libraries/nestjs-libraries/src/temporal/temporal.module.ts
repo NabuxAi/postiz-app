@@ -42,6 +42,19 @@ export const getTemporalModule = (
             ...[
               { identifier: 'main', maxConcurrentJob: undefined },
               ...socialIntegrationList,
+              // `nabux-bale` and the other Nabux channels queue on `nabux`
+              // (the segment before the first hyphen). Workers are only
+              // created for identifiers that contain no hyphen, and there is
+              // no plain `nabux` channel, so the shared queue is registered
+              // here. Existing provider queues are unchanged.
+              ...(socialIntegrationList.some(
+                (provider) => provider.identifier.split('-')[0] === 'nabux'
+              ) &&
+              !socialIntegrationList.some(
+                (provider) => provider.identifier === 'nabux'
+              )
+                ? [{ identifier: 'nabux', maxConcurrentJob: 3 }]
+                : []),
             ]
               .filter((f) => f.identifier.indexOf('-') === -1)
               .map((integration) => ({
